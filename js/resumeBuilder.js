@@ -3,12 +3,11 @@
 * Fie For Roger's Resume content
 *
 */
-var awesomeThoughts = "I am Roger and I am AWESOME!";
+var name = "Roger Woodroofe";
+var role = "Front End Developer";
 
-$("#main").append("Roger Woodroofe");
+var formattedName = HTMLheaderName.replace("%data%", name);
+var formattedRole = HTMLheaderRole.replace("%data%", role);
 
-funThoughts = awesomeThoughts.replace("AWESOME","FUN");
-
-console.log(awesomeThoughts);
-$("#main").append(funThoughts);
-
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
