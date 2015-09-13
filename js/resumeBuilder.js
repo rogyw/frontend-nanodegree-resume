@@ -24,6 +24,89 @@ var bio = {
   ]
 };
 
+var education = {
+  "schools": [
+  {
+    "name": "University of Auckland",
+    "city": "Auckland, NZ",
+    "degree": "Bachelor of Technology (hons.)",
+    "major": [
+      "Information Technology"
+    ],
+    "years": "1993 - 1996"
+  }
+  ],
+  "onlineCourses": [
+  {
+    "title": "Javascript Basics",
+    "school": "Udacity",
+    "dates": "2015",
+    "url": "https://www.udacity.com/course/javascript-basics--ud804"
+  },
+  {
+    "title": "How to use Git and GitHub",
+    "school": "Udacity",
+    "dates": "2015",
+    "url": "https://www.udacity.com/course/how-to-use-git-and-github--ud775"
+  },
+  {
+    "title": "Responsive Images",
+    "school": "Udacity",
+    "dates": "2015",
+    "url": "https://www.udacity.com/course/responsive-images--ud882"
+  },
+  {
+    "title": "Responsive Web Design Fundamentals",
+    "school": "Udacity",
+    "dates": "2015",
+    "url": "https://www.udacity.com/course/responsive-web-design-fundamentals--ud893"
+  },
+  {
+    "title": "Intro to HTML and CSS",
+    "school": "Udacity",
+    "dates": "2015",
+    "url": "https://www.udacity.com/course/intro-to-html-and-css--ud304"
+  }
+  ],
+  "otherCourses": [
+  {
+    "title": "Advanced Communicator Silver",
+    "school": "Toastmasters International",
+    "city": "Auckland, NZ",
+    "dates": "2013",
+    "url": "http://www.toastmasters.org/Resources/Education-Program/Advanced-Communication"
+  },
+  {
+    "title": "Workplace First Aid in Outdoors",
+    "name": "NZ Mountain Saftey",
+    "city": "Auckland, NZ",
+    "dates": " Sept 2013",
+    "url": "http://www.mountainsafety.org.nz/training/Outdoor-First-Aid/Overview.asp"
+  },
+  {
+    "title": "Bush Safety course",
+    "school": "Open Polytechnic of NZ",
+    "city": "Correspondence",
+    "dates": "2002",
+    "url": "http://www.openpolytechnic.ac.nz/"
+  }
+  ]
+};
+
+
+var work = {};
+work.employer = "Contract - Orienteering NZ";
+work.position = "Online Coordinator";
+work.workDates = "April 2014 - current";
+work.location = "Remote";
+work.description = "The purpose of the Online Co-ordinator is to ensure the Orienteering NZ is managing its online profile in a best-practice way.";
+
+var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work["employer"]);
+var formattedWorkTitle = HTMLworkTitle.replace("%data%", work["position"]);
+var formattedWorkDates = HTMLworkDates.replace("%data%", work["workDates"]);
+var formattedWorkLocation = HTMLworkLocation.replace("%data%", work["location"]);
+var formattedWorkDescription = HTMLworkDescription.replace("%data%", work["description"]);
+
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 
@@ -61,3 +144,11 @@ while(mySkills.length > 0) {
   formattedSkills = HTMLskills.replace("%data%", mySkills.shift());
   $("#skills").append(formattedSkills);
 }
+
+$("#workExperience").append(HTMLworkStart);
+$("#workExperience").append(formattedWorkEmployer);
+$("#workExperience").append(formattedWorkTitle);
+$("#workExperience").append(formattedWorkDates);
+$("#workExperience").append(formattedWorkLocation);
+$("#workExperience").append(formattedWorkDescription);
+
