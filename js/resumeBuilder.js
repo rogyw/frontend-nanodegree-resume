@@ -7,6 +7,7 @@
 var bio = {
   "name" : "Roger Woodroofe",
   "role" : "Web Developer and IT Support",
+  "welcomeMsg" : "Contact me now to discuss how I can help your business succeed.",
   "bioPic" : "images/roger-profile-image.jpg",
   "contacts" : {
     "mobile" : "+64 27 2932397",
@@ -18,7 +19,6 @@ var bio = {
     "genericPost" : "PO Box 11390, Ellerslie, Auckland 1542, New Zealand",
     "genericPostTitle" : "Post"
   },
-  "welcomeMsg" : "Contact me now to discuss how I can help your business succeed.",
   "skills" : [
     "Web Development", "HTML / CSS",  "Git / GitHub", "IT Support", "User Documentation", "Application Support"
   ]
@@ -138,4 +138,15 @@ var work = {
       "description": "Development in C programming language with network protocols NetBIOS, IPX and TCP/IP and Winsock2/WATTTCP/Network Driver specifications. Development team member. Minimal assembly language work. Windows online user help file creation. User manual supplements. Documentation maintenance and project management."
     }
     ]
+};
+
+var projects = {
+  "projects": [
+  {
+    "title": "",
+    "dates": "",
+    "description": "",
+    "images": []
+  }
+  ]
 };
