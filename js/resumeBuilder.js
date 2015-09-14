@@ -14,7 +14,7 @@ var bio = {
     "email" : "RogerWoodroofe@gmail.com",
     "twitter" : "@rogyw",
     "github" : "turtleline",
-    "blog" : "",
+    "blog" : "roger.navevent.co.nz/blog/",
     "location" : "Waikato, NZ",
     "genericPost" : "PO Box 11390, Ellerslie, Auckland 1542, New Zealand",
     "genericPostTitle" : "Post"
@@ -23,6 +23,35 @@ var bio = {
     "Web Development", "HTML / CSS",  "Git / GitHub", "IT Support", "User Documentation", "Application Support"
   ]
 };
+
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+
+var formattedContactGeneric = HTMLcontactGeneric.replace("%contact%", bio.contacts.genericPostTitle).replace("%data%", bio.contacts.genericPost);
+
+var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+var formattedBlog = HTMLblog.replace("%data%", bio.contacts.blog);
+var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg);
+
+$("#header").prepend(formattedBioPic);
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+
+$("#topContacts").append(formattedLocation);
+$("#topContacts").append(formattedEmail);
+$("#topContacts").append(formattedMobile);
+$("#topContacts").append(formattedTwitter);
+$("#topContacts").append(formattedGithub);
+$("#topContacts").append(formattedBlog);
+$("#topContacts").append(formattedContactGeneric);
+
+$("#header").append(formattedWelcomeMsg);
 
 if(bio.skills.length > 0) {
   $("#header").append(HTMLskillsStart);
@@ -109,14 +138,14 @@ var work = {
     {
       "employer": "Orienteering NZ (Contract)",
       "title": "Online Coordinator",
-      "location": "Remote",
+      "location": "Matamata, Waikato, NZ",
       "dates": "April 2014 - current",
       "description": "The purpose of the Online Co-ordinator is to ensure the Orienteering NZ is managing its online profile in a best-practice way. Wordpress site administration"
     },
     {
       "employer": "Self Employed (Casual)",
       "title": "IT Maintenance and Support",
-      "location": "Auckland, NZ",
+      "location": "Greenlane, Auckland, NZ",
       "dates": "2001 - present",
       "description": "IT support services for several Small Businesses. Computer and network setup, maintenance and support. Application Support. Staff training and procedures documentation. On-call onsite and remote support."
     },
@@ -130,44 +159,59 @@ var work = {
     {
       "employer": "Volunteer / Self Employed (Casual)",
       "title": "Web Developer, Administrator and Support",
-      "location": "Auckland, NZ",
+      "location": "Ellerslie, Auckland, NZ",
       "dates": "2001 - 2014",
       "description": "Provided customised website development adhering to web standards validation. CMS: Silverstripe, Concrete5, Joomla, Wordpress. HTML4+5/XHTML and CSS. MySQL database maintenance. Maintenance and improvement of sites in PHP, Coldfusion5, Javascript, jQuery. Online forms, and database structures; Website support and advice. Management of hosting, domain names, email services; assisted clients and staff with content creation; maintained and implemented smooth change-over; Speed enhancement, upgrades, logs analysis, SEO and troubleshooting."
     },
     {
       "employer": "Symantec New Zealand Limited",
       "title": "Information Developer",
-      "location": "Auckland, NZ",
+      "location": "Grey Lynn, Auckland, NZ",
       "dates": "June 1998 - May 1999",
       "description": "User documentation update and maintenance to adhere to style guidelines. Worked with overseas senior editor.  Provided updates to international translation team. Identified and reported documentation requirements for version releases."
     },
     {
       "employer": "Self Employed (Contract)",
       "title": "Software Developer",
-      "location": "Auckland, NZ",
+      "location": "Grey Lynn, Auckland, NZ",
       "dates": "Dec 1996 - June 1998",
       "description": "Development in C programming language with network protocols NetBIOS, IPX and TCP/IP and Winsock2/WATTTCP/Network Driver specifications. Development team member. Minimal assembly language work. Windows online user help file creation. User manual supplements. Documentation maintenance and project management."
     }
     ]
 };
 
-if (work.jobs.length > 0) {
-  $("#workExperience").append(HTMLworkStart);
+function locationizer(work_obj) {
+  var locations = [];
+  if(work_obj.jobs.length > 0){
+    for (var job in work_obj.jobs){
+      locations.push(work_obj.jobs[job].location);
+    }
+    return locations;
+  }
 
-  for (job in work.jobs){
-    var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-    var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-    var formattedworkEmployerTitle = formattedWorkEmployer + formattedWorkTitle;
-    var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-    var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-    var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+}
 
-    $(".work-entry:last").append(formattedworkEmployerTitle);
-    $(".work-entry:last").append(formattedWorkLocation);
-    $(".work-entry:last").append(formattedWorkDates);
-    $(".work-entry:last").append(formattedWorkDescription);
+function displayWork() {
+
+  if (work.jobs.length > 0) {
+    $("#workExperience").append(HTMLworkStart);
+
+    for (job in work.jobs){
+      var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+      var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+      var formattedworkEmployerTitle = formattedWorkEmployer + formattedWorkTitle;
+      var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+      var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+      var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+
+      $(".work-entry:last").append(formattedworkEmployerTitle);
+      $(".work-entry:last").append(formattedWorkLocation);
+      $(".work-entry:last").append(formattedWorkDates);
+      $(".work-entry:last").append(formattedWorkDescription);
+    }
   }
 }
+
 var projects = {
   "projects": [
   {
@@ -178,3 +222,54 @@ var projects = {
   }
   ]
 };
+
+
+$(document).click(function(loc) {
+  var x = loc.pageX;
+  var y = loc.pageY;
+
+  logClicks(x, y);
+});
+
+
+
+
+function inName(full_name) {
+  //full_name is a string containing the names of a person seperated by space.
+  //returns: all names are returned in Title Case and last name in ALL-CAPS.
+
+    var internationalName = full_name;
+
+console.log(internationalName);
+
+    // remove all uppercase letters
+    internationalName = internationalName.toLowerCase();
+
+    //convert name string to array of names
+    var tempNameArray = internationalName.split(" ");
+
+    //extract the surname and change to uppercase
+    var surname = tempNameArray.pop();
+    surname = surname.toUpperCase();
+
+    //titlecase on all first names
+    var name = "";
+    while(tempNameArray.length > 0) {
+        var namePart = tempNameArray.shift();
+        name = name + namePart[0].toUpperCase() + namePart.slice(1) + " ";
+    }
+
+    //join first names and surname
+    internationalName = name + surname;
+console.log(internationalName);
+
+    return internationalName;
+}
+
+
+inName("roGer woodRoofe");
+
+locationizer(work);
+
+$("#main").append(internationalizeButton);
+
