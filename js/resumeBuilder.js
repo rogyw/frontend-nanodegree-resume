@@ -24,6 +24,17 @@ var bio = {
   ]
 };
 
+if(bio.skills.length > 0) {
+  $("#header").append(HTMLskillsStart);
+
+  var mySkills = bio.skills.slice();
+
+  while(mySkills.length > 0) {
+    var formattedSkills = HTMLskills.replace("%data%", mySkills.shift());
+    $("#skills").append(formattedSkills);
+  };
+};
+
 var education = {
   "schools": [
   {
@@ -96,7 +107,7 @@ var education = {
 var work = {
   "jobs": [
     {
-      "employer": "Contract - Orienteering NZ",
+      "employer": "Orienteering NZ (Contract)",
       "title": "Online Coordinator",
       "location": "Remote",
       "dates": "April 2014 - current",
@@ -140,6 +151,23 @@ var work = {
     ]
 };
 
+if (work.jobs.length > 0) {
+  $("#workExperience").append(HTMLworkStart);
+
+  for (job in work.jobs){
+    var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+    var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+    var formattedworkEmployerTitle = formattedWorkEmployer + formattedWorkTitle;
+    var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+    var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+    var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+
+    $(".work-entry:last").append(formattedworkEmployerTitle);
+    $(".work-entry:last").append(formattedWorkLocation);
+    $(".work-entry:last").append(formattedWorkDates);
+    $(".work-entry:last").append(formattedWorkDescription);
+  }
+}
 var projects = {
   "projects": [
   {
