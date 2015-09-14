@@ -243,7 +243,7 @@ function inName(full_name) {
 console.log(internationalName);
 
     // remove all uppercase letters
-    internationalName = internationalName.toLowerCase();
+    internationalName = internationalName.trim().toLowerCase();
 
     //convert name string to array of names
     var tempNameArray = internationalName.split(" ");
