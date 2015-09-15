@@ -215,13 +215,37 @@ function displayWork() {
 var projects = {
   "projects": [
   {
-    "title": "",
-    "dates": "",
-    "description": "",
-    "images": []
+    "title": "Joomla Template (Codenza) - BGate",
+    "dates": "2012",
+    "description": "Joomla Template initial build in HTML/CSS created from supplied design images. CMS setup and added content. Created documentation for website.",
+    "images": ["http://roger.navevent.co.nz/portfolio/img/past_work_bg.png", "http://placehold.it/250x200"]
+  },
+  {
+    "title": "Joomla Template (Codenza) - Added Insight",
+    "dates": "2012",
+    "description": "Joomla Template initial build in HTML/CSS created from supplied design pdf mockup. CMS setup and added content. Suggested small design improvements.",
+    "images": ["http://roger.navevent.co.nz/portfolio/img/past_work_ai.png", "http://placehold.it/250x200"]
   }
   ]
 };
+
+projects.display = function(){
+  if (projects.projects.length > 0) {
+    $("#projects").append(HTMLprojectStart);
+    for (project in projects.projects) {
+      var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+      var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+      var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+      $(".project-entry:last").append(formattedProjectTitle);
+      $(".project-entry:last").append(formattedProjectDates);
+      $(".project-entry:last").append(formattedProjectDescription);
+      for (image in projects.projects[project].images) {
+        var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+        $(".project-entry:last").append(formattedProjectImage);
+      }
+    }
+  }
+}
 
 
 $(document).click(function(loc) {
@@ -273,3 +297,4 @@ locationizer(work);
 
 $("#main").append(internationalizeButton);
 
+projects.display();
