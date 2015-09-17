@@ -70,12 +70,11 @@ var education = {
   "schools": [
   {
     "name": "University of Auckland",
-    "city": "Auckland, NZ",
+    "location": "Glen Innes, Auckland, NZ",
     "degree": "Bachelor of Technology (hons.)",
     "major":  "Information Technology",
     "years": "1993 - 1996"
-  }
-  ],
+  }],
   "onlineCourses": [
   {
     "title": "Javascript Basics",
@@ -106,20 +105,19 @@ var education = {
     "school": "Udacity",
     "dates": "2015",
     "url": "https://www.udacity.com/course/intro-to-html-and-css--ud304"
-  }
-  ],
+  }],
   "otherCourses": [
   {
     "title": "Advanced Communicator Silver",
     "school": "Toastmasters International",
-    "city": "Auckland, NZ",
+    "city": "Remuera, Auckland, NZ",
     "dates": "2013",
     "url": "http://www.toastmasters.org/Resources/Education-Program/Advanced-Communication"
   },
   {
     "title": "Workplace First Aid in Outdoors",
     "school": "NZ Mountain Saftey",
-    "city": "Auckland, NZ",
+    "city": "Green Bay, Auckland, NZ",
     "dates": " Sept 2013",
     "url": "http://www.mountainsafety.org.nz/training/Outdoor-First-Aid/Overview.asp"
   },
@@ -129,8 +127,7 @@ var education = {
     "city": "Correspondence",
     "dates": "2002",
     "url": "http://www.openpolytechnic.ac.nz/"
-  }
-  ]
+  }]
 };
 
 education.displaySchools = function() {
@@ -143,7 +140,7 @@ education.displaySchools = function() {
       var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
       var formattedSchoolNameDegree = formattedSchoolName + formattedSchoolDegree;
 
-      var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].city);
+      var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
       var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
       var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].years);
 
@@ -367,4 +364,6 @@ bio.display();
 projects.display();
 work.display();
 education.display();
+
+$("#mapDiv").append(googleMap);
 
