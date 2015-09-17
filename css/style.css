@@ -100,7 +100,7 @@ ul#footerContacts a {
 
 ul#topContacts a:hover,
 ul#footerContacts a:hover {
-  text-decoration: underline;
+  border-bottom: 1px dotted #f5ae23;
 }
 
 
@@ -176,6 +176,10 @@ span {
   padding: 5px;
 }
 
+.role {
+  color: #f3f3f3;
+}
+
 #lets-connect {
   text-align: center;
 }
@@ -234,26 +238,27 @@ span {
 }
 
 @media only screen and (min-width: 900px) {
+  #header {
+    margin-bottom: 20px;
+  }
 
   #workExperience,
   #projects,
-  #education,
+  #education {
+    width: calc(50% - 22px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+  }
+
   #mapDiv {
     width: calc(50% - 22px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
     margin-bottom: 20px;
   }
 
-  /* #workExperience {
-    border-right: 2px dotted #4a4a4a;
-  }*/
-
   #projects {
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    padding: 0;
   }
 
   #projects h2 {
