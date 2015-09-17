@@ -92,6 +92,12 @@ a {
   display: block;
 }
 
+ul#topContacts a,
+ul#footerContacts a {
+  color: white;
+  display: inline;
+}
+
 .welcome-message {
   font-style: italic;
   font-size: 18px;

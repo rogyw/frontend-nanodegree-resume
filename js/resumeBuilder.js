@@ -12,9 +12,9 @@ var bio = {
   "contacts" : {
     "mobile" : "+64 27 2932397",
     "email" : "RogerWoodroofe@gmail.com",
-    "twitter" : "@rogyw",
-    "github" : "turtleline",
-    "blog" : "roger.navevent.co.nz/blog/",
+    "twitter" : "rogyw",
+    "github" : "rogyw",
+    "blog" : "roger.navevent.co.nz/blog",
     "location" : "Waikato, NZ",
     "genericPost" : "PO Box 11390, Ellerslie, Auckland 1542, New Zealand",
     "genericPostTitle" : "Post"
@@ -23,6 +23,9 @@ var bio = {
     "Web Development", "HTML / CSS",  "Git / GitHub", "IT Support", "User Documentation", "Application Support"
   ]
 };
+bio.displayContacts = function () {
+
+}
 
 bio.display = function () {
   var formattedName = HTMLheaderName.replace("%data%", bio.name);
@@ -31,10 +34,10 @@ bio.display = function () {
   var formattedContactGeneric = HTMLcontactGeneric.replace("%contact%", bio.contacts.genericPostTitle).replace("%data%", bio.contacts.genericPost);
 
   var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-  var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-  var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-  var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-  var formattedBlog = HTMLblog.replace("%data%", bio.contacts.blog);
+  var formattedEmail = HTMLemail.replace(/%data%/g, bio.contacts.email);
+  var formattedTwitter = HTMLtwitter.replace(/%data%/g, bio.contacts.twitter);
+  var formattedGithub = HTMLgithub.replace(/%data%/g, bio.contacts.github);
+  var formattedBlog = HTMLblog.replace(/%data%/g, bio.contacts.blog);
   var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 
   var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
@@ -44,13 +47,20 @@ bio.display = function () {
   $("#header").prepend(formattedRole);
   $("#header").prepend(formattedName);
 
-  $("#topContacts").append(formattedLocation);
-  $("#topContacts").append(formattedEmail);
   $("#topContacts").append(formattedMobile);
-  $("#topContacts").append(formattedTwitter);
+  $("#topContacts").append(formattedEmail);
   $("#topContacts").append(formattedGithub);
+  $("#topContacts").append(formattedTwitter);
   $("#topContacts").append(formattedBlog);
+  $("#topContacts").append(formattedLocation);
   $("#topContacts").append(formattedContactGeneric);
+
+  $("#footerContacts").append(formattedMobile);
+  $("#footerContacts").append(formattedEmail);
+  $("#footerContacts").append(formattedGithub);
+  $("#footerContacts").append(formattedTwitter);
+  $("#footerContacts").append(formattedBlog);
+  $("#footerContacts").append(formattedLocation);
 
   $("#header").append(formattedWelcomeMsg);
 
@@ -131,7 +141,6 @@ var education = {
 };
 
 education.displaySchools = function() {
-
   if (education.schools.length > 0) {
     $("#education").append(HTMLschoolStart);
 
