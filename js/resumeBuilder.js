@@ -287,13 +287,13 @@ var projects = {
     "title": "Joomla Template (Codenza) - BGate",
     "dates": "2012",
     "description": "Joomla Template initial build in HTML/CSS created from supplied design images. CMS setup and added content. Created documentation for website.",
-    "images": ["http://roger.navevent.co.nz/portfolio/img/past_work_bg.png", "http://placehold.it/250x200"]
+    "images": ["http://roger.navevent.co.nz/portfolio/img/past_work_bg.png"]
   },
   {
     "title": "Joomla Template (Codenza) - Added Insight",
     "dates": "2012",
     "description": "Joomla Template initial build in HTML/CSS created from supplied design pdf mockup. CMS setup and added content. Suggested small design improvements.",
-    "images": ["http://roger.navevent.co.nz/portfolio/img/past_work_ai.png", "http://placehold.it/250x200"]
+    "images": ["http://roger.navevent.co.nz/portfolio/img/past_work_ai.png"]
   }
   ]
 };
