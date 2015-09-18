@@ -21,7 +21,7 @@ var bio = {
     "linkedin": "https://nz.linkedin.com/in/rogerwoodroofe"
   },
   "skills" : [
-    "Web Development", "HTML / CSS",  "Git / GitHub", "IT Support", "User Documentation", "Application Support"
+    "Web Development", "HTML / CSS",  "Git / GitHub", "IT Support", "User Documentation", "Application Support", "Small Business Content Management (CMS) admin and setup", "Joomla", "Silverstripe", "Wordpress", "Concrete5"
   ]
 };
 bio.displayContacts = function () {
