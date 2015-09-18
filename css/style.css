@@ -188,6 +188,7 @@ span {
 
 #lets-connect {
   text-align: center;
+  width: 100%;
 }
 
 .project-entry img {
@@ -227,13 +228,13 @@ span {
 #map {
   display: block;
   height: 100%;
-  margin: 0 5%;
+  margin: 0 5% 20px 5%;
 }
 
 #mapDiv {
   height: 400px;
   width: 100%;
-  padding-bottom: 5%;
+  padding-bottom: 8%;
 }
 
 @media only screen and (min-width: 750px) {
@@ -276,3 +277,11 @@ span {
   }
 
 }
+
+@media only screen and (min-width: 1025px) {
+  div.#main {
+    margin-left: auto;
+    margin-right:auto;
+    width: 1024px;
+  }
+

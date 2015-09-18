@@ -17,7 +17,8 @@ var bio = {
     "blog" : "roger.navevent.co.nz/blog",
     "location" : "Waikato, NZ",
     "genericPost" : "PO Box 11390, Ellerslie, Auckland 1542, New Zealand",
-    "genericPostTitle" : "Post"
+    "genericPostTitle" : "Post",
+    "linkedin": "https://nz.linkedin.com/in/rogerwoodroofe"
   },
   "skills" : [
     "Web Development", "HTML / CSS",  "Git / GitHub", "IT Support", "User Documentation", "Application Support"
@@ -37,6 +38,7 @@ bio.display = function () {
   var formattedEmail = HTMLemail.replace(/%data%/g, bio.contacts.email);
   var formattedTwitter = HTMLtwitter.replace(/%data%/g, bio.contacts.twitter);
   var formattedGithub = HTMLgithub.replace(/%data%/g, bio.contacts.github);
+  var formattedLinkedin = HTMLlinkedin.replace(/%data%/g, bio.contacts.linkedin);
   var formattedBlog = HTMLblog.replace(/%data%/g, bio.contacts.blog);
   var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 
@@ -53,6 +55,7 @@ bio.display = function () {
   $("#topContacts").append(formattedTwitter);
   $("#topContacts").append(formattedBlog);
   $("#topContacts").append(formattedLocation);
+  $("#topContacts").append(formattedLinkedin);
   $("#topContacts").append(formattedContactGeneric);
 
   $("#footerContacts").append(formattedMobile);
