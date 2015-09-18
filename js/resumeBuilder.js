@@ -81,9 +81,10 @@ var education = {
   {
     "name": "University of Auckland",
     "location": "Glen Innes, Auckland, NZ",
-    "degree": "Bachelor of Technology (hons.)",
+    "degree": "Bachelor of Technology (Hons)",
     "major":  "Information Technology",
-    "years": "1993 - 1996"
+    "years": "1993 - 1996",
+    "url" : "http://www.auckland.ac.nz/"
   }],
   "onlineCourses": [
   {
@@ -125,6 +126,13 @@ var education = {
     "url": "http://www.toastmasters.org/Resources/Education-Program/Advanced-Communication"
   },
   {
+    "title": "Competent Leader",
+    "school": "Toastmasters International",
+    "location": "Remuera, Auckland, NZ",
+    "dates": "2003",
+    "url": "http://www.toastmasters.org/Resources/Education-Program/Advanced-Communication"
+  },
+  {
     "title": "Workplace First Aid in Outdoors",
     "school": "NZ Mountain Saftey",
     "location": "Green Bay, Auckland, NZ",
@@ -146,6 +154,7 @@ education.displaySchools = function() {
       $("#education").append(HTMLschoolStart);
 
       var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
+      formattedSchoolName = formattedSchoolName.replace("%url%", education.schools[school].url);
       var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
       var formattedSchoolNameDegree = formattedSchoolName + formattedSchoolDegree;
 
@@ -226,42 +235,49 @@ var work = {
       "title": "Online Coordinator",
       "location": "Matamata, Waikato, NZ",
       "dates": "April 2014 - current",
-      "description": "The purpose of the Online Co-ordinator is to ensure the Orienteering NZ is managing its online profile in a best-practice way. Wordpress site administration"
+      "description": "The purpose of the Online Co-ordinator is to ensure the Orienteering NZ is managing its online profile in a best-practice way. Wordpress site administration",
+      "url": "http://www.orienteering.org.nz/"
+
     },
     {
       "employer": "Self Employed (Casual)",
       "title": "IT Maintenance and Support",
       "location": "Greenlane, Auckland, NZ",
       "dates": "2001 - present",
-      "description": "IT support services for several Small Businesses. Computer and network setup, maintenance and support. Application Support. Staff training and procedures documentation. On-call onsite and remote support."
+      "description": "IT support services for several Small Businesses. Computer and network setup, maintenance and support. Application Support. Staff training and procedures documentation. On-call onsite and remote support.",
+      "url": "http://roger.navevent.co.nz/"
     },
     {
       "employer": "Codenza Limited",
       "title": "Web Developer and Support",
       "location": "East Tamaki, Auckland, NZ",
       "dates": "Nov 2011 - Dec 2012",
-      "description": "Website development and support. CSS, HTML, PHP, Joomla website upgrades, configuration, and new sites. Joomla template development and client support. User documentation. Shopping cart site upgrades. Content updates. Site maintenance. Testing and issue resolution."
+      "description": "Website development and support. CSS, HTML, PHP, Joomla website upgrades, configuration, and new sites. Joomla template development and client support. User documentation. Shopping cart site upgrades. Content updates. Site maintenance. Testing and issue resolution.",
+      "url": "http://www.codenza.co.nz/"
     },
     {
       "employer": "Volunteer / Self Employed (Casual)",
       "title": "Web Developer, Administrator and Support",
       "location": "Ellerslie, Auckland, NZ",
       "dates": "2001 - 2014",
-      "description": "Provided customised website development adhering to web standards validation. CMS: Silverstripe, Concrete5, Joomla, Wordpress. HTML4+5/XHTML and CSS. MySQL database maintenance. Maintenance and improvement of sites in PHP, Coldfusion5, Javascript, jQuery. Online forms, and database structures; Website support and advice. Management of hosting, domain names, email services; assisted clients and staff with content creation; maintained and implemented smooth change-over; Speed enhancement, upgrades, logs analysis, SEO and troubleshooting."
+      "description": "Provided customised website development adhering to web standards validation. CMS: Silverstripe, Concrete5, Joomla, Wordpress. HTML4+5/XHTML and CSS. MySQL database maintenance. Maintenance and improvement of sites in PHP, Coldfusion5, Javascript, jQuery. Online forms, and database structures; Website support and advice. Management of hosting, domain names, email services; assisted clients and staff with content creation; maintained and implemented smooth change-over; Speed enhancement, upgrades, logs analysis, SEO and troubleshooting.",
+       "url": "http://roger.navevent.co.nz/"
     },
     {
       "employer": "Symantec New Zealand Limited",
       "title": "Information Developer",
       "location": "Grey Lynn, Auckland, NZ",
       "dates": "June 1998 - May 1999",
-      "description": "User documentation update and maintenance to adhere to style guidelines. Worked with overseas senior editor.  Provided updates to international translation team. Identified and reported documentation requirements for version releases."
+      "description": "User documentation update and maintenance to adhere to style guidelines. Worked with overseas senior editor.  Provided updates to international translation team. Identified and reported documentation requirements for version releases.",
+      "url": "http://www.symantec.com/"
     },
     {
       "employer": "Self Employed (Contract)",
       "title": "Software Developer",
       "location": "Grey Lynn, Auckland, NZ",
       "dates": "Dec 1996 - June 1998",
-      "description": "Development in C programming language with network protocols NetBIOS, IPX and TCP/IP and Winsock2/WATTTCP/Network Driver specifications. Development team member. Minimal assembly language work. Windows online user help file creation. User manual supplements. Documentation maintenance and project management."
+      "description": "Development in C programming language with network protocols NetBIOS, IPX and TCP/IP and Winsock2/WATTTCP/NDIS network driver specifications. Development team member. Minimal assembly language work. Windows online user help file creation. User manual supplements. Documentation maintenance and project management.",
+      "url": "http://roger.navevent.co.nz/"
     }
     ]
 };
@@ -273,8 +289,10 @@ work.display = function() {
       $("#workExperience").append(HTMLworkStart);
 
       var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+      formattedWorkEmployer = formattedWorkEmployer.replace("%url%", work.jobs[job].url);
       var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
       var formattedworkEmployerTitle = formattedWorkEmployer + formattedWorkTitle;
+
       var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
       var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
       var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
@@ -293,13 +311,15 @@ var projects = {
     "title": "Joomla Template (Codenza) - BGate",
     "dates": "2012",
     "description": "Joomla Template initial build in HTML/CSS created from supplied design images. CMS setup and added content. Created documentation for website.",
-    "images": ["http://roger.navevent.co.nz/portfolio/img/past_work_bg.png"]
+    "images": ["http://roger.navevent.co.nz/portfolio/img/past_work_bg.png"],
+    "url": "http://www.bgate.com/cms/"
   },
   {
     "title": "Joomla Template (Codenza) - Added Insight",
     "dates": "2012",
     "description": "Joomla Template initial build in HTML/CSS created from supplied design pdf mockup. CMS setup and added content. Suggested small design improvements.",
-    "images": ["http://roger.navevent.co.nz/portfolio/img/past_work_ai.png"]
+    "images": ["http://roger.navevent.co.nz/portfolio/img/past_work_ai.png"],
+    "url": "http://www.addedinsight.co.nz/"
   }
   ]
 };
@@ -310,6 +330,7 @@ projects.display = function(){
       $("#projects").append(HTMLprojectStart);
 
       var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+      formattedProjectTitle = formattedProjectTitle.replace("%url%", projects.projects[project].url);
       var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
       var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
 
@@ -376,7 +397,8 @@ console.log(internationalName);
     return internationalName;
 }
 
-$("#main").append(internationalizeButton);
+// Uncomment the following line to add Udacity exercise - Surname Capitalisation button
+//$("#main").append(internationalizeButton);
 
 bio.display();
 projects.display();
