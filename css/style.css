@@ -21,7 +21,7 @@ h6 {
 .education-entry,
 .work-entry,
 .project-entry {
-  padding: 0 5%;
+  padding: 0 5% 20px 5%;
 }
 
 h1 {
@@ -92,6 +92,10 @@ a {
   display: block;
 }
 
+a.course-url {
+  font-size: 0.7em;
+}
+
 ul#topContacts a,
 ul#footerContacts a {
   color: white;
@@ -99,9 +103,11 @@ ul#footerContacts a {
 }
 
 ul#topContacts a:hover,
-ul#footerContacts a:hover {
+ul#footerContacts a:hover,
+a.course-url:hover {
   border-bottom: 1px dotted #f5ae23;
 }
+
 
 
 .welcome-message {

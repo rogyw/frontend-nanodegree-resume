@@ -120,21 +120,21 @@ var education = {
   {
     "title": "Advanced Communicator Silver",
     "school": "Toastmasters International",
-    "city": "Remuera, Auckland, NZ",
+    "location": "Remuera, Auckland, NZ",
     "dates": "2013",
     "url": "http://www.toastmasters.org/Resources/Education-Program/Advanced-Communication"
   },
   {
     "title": "Workplace First Aid in Outdoors",
     "school": "NZ Mountain Saftey",
-    "city": "Green Bay, Auckland, NZ",
+    "location": "Green Bay, Auckland, NZ",
     "dates": " Sept 2013",
     "url": "http://www.mountainsafety.org.nz/training/Outdoor-First-Aid/Overview.asp"
   },
   {
     "title": "Bush Safety course",
     "school": "Open Polytechnic of NZ",
-    "city": "Correspondence",
+    "location": "Correspondence",
     "dates": "2002",
     "url": "http://www.openpolytechnic.ac.nz/"
   }]
@@ -142,9 +142,9 @@ var education = {
 
 education.displaySchools = function() {
   if (education.schools.length > 0) {
-    $("#education").append(HTMLschoolStart);
-
     for (school in education.schools){
+      $("#education").append(HTMLschoolStart);
+
       var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
       var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
       var formattedSchoolNameDegree = formattedSchoolName + formattedSchoolDegree;
@@ -166,10 +166,13 @@ education.displayOnlineCourses = function() {
 // assumes div with class education-entry is available
 
   if(education.onlineCourses.length > 0) {
-    $(".education-entry:last").append(HTMLonlineClasses);
+    $("#education").append(HTMLonlineClasses);
 
     for (course in education.onlineCourses){
+      $("#education").append(HTMLonlineStart);
+
       var formattedCourseTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
+      formattedCourseTitle = formattedCourseTitle.replace("%url%", education.onlineCourses[course].url);
       var formattedCourseSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
       var formattedCourseTitleSchool = formattedCourseTitle + formattedCourseSchool;
 
@@ -188,10 +191,13 @@ education.displayOtherCourses = function() {
 // assumes div with class education-entry is available
 
   if(education.otherCourses.length> 0) {
-    $(".education-entry:last").append(HTMLotherClasses);
+    $("#education").append(HTMLotherClasses);
 
     for (course in education.otherCourses){
+      $("#education").append(HTMLotherStart);
+
       var formattedCourseTitle = HTMLotherTitle.replace("%data%", education.otherCourses[course].title);
+      formattedCourseTitle = formattedCourseTitle.replace("%url%", education.otherCourses[course].url);
       var formattedCourseSchool = HTMLotherSchool.replace("%data%", education.otherCourses[course].school);
       var formattedCourseTitleSchool = formattedCourseTitle + formattedCourseSchool;
 
@@ -263,9 +269,9 @@ var work = {
 work.display = function() {
 
   if (work.jobs.length > 0) {
-    $("#workExperience").append(HTMLworkStart);
-
     for (job in work.jobs){
+      $("#workExperience").append(HTMLworkStart);
+
       var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
       var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
       var formattedworkEmployerTitle = formattedWorkEmployer + formattedWorkTitle;
@@ -300,14 +306,17 @@ var projects = {
 
 projects.display = function(){
   if (projects.projects.length > 0) {
-    $("#projects").append(HTMLprojectStart);
     for (project in projects.projects) {
+      $("#projects").append(HTMLprojectStart);
+
       var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
       var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
       var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+
       $(".project-entry:last").append(formattedProjectTitle);
       $(".project-entry:last").append(formattedProjectDates);
       $(".project-entry:last").append(formattedProjectDescription);
+
       for (image in projects.projects[project].images) {
         var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
         $(".project-entry:last").append(formattedProjectImage);
