@@ -61,6 +61,12 @@ h5 {
 
 }
 
+.map-info{
+  color: #f5ae23;
+  background-color:  #4a4a4a;
+  font-weight: bold;
+  padding: 1em;
+}
 
 .date-text {
   font-style: italic;
