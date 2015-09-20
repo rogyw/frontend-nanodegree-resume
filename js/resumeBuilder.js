@@ -1,6 +1,7 @@
 /*
 *
-* Fie For Roger's Resume content
+* Fie For Roger Woodroofe's Resume content
+* Based on Udacity course material https://www.udacity.com/course/javascript-basics--ud804
 *
 */
 
@@ -24,9 +25,6 @@ var bio = {
     "Web Development", "HTML / CSS",  "Git / GitHub", "IT Support", "User Documentation", "Application Support", "PHP", "MySQL", "Small Business Content Management (CMS) admin and setup", "Joomla", "Silverstripe", "Wordpress", "Concrete5"
   ]
 };
-bio.displayContacts = function () {
-
-}
 
 bio.display = function () {
   var formattedName = HTMLheaderName.replace("%data%", bio.name);
@@ -358,16 +356,7 @@ function locationizer(work_obj) {
     }
     return locations;
   }
-
 }
-
-
-$(document).click(function(loc) {
-  var x = loc.pageX;
-  var y = loc.pageY;
-
-  logClicks(x, y);
-});
 
 
 function inName(full_name) {
@@ -395,7 +384,6 @@ function inName(full_name) {
 
     //join first names and surname
     internationalName = name + surname;
-console.log(internationalName);
 
     return internationalName;
 }
@@ -409,4 +397,3 @@ work.display();
 education.display();
 
 $("#mapDiv").append(googleMap);
-

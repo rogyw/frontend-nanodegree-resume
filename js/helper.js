@@ -1,15 +1,9 @@
 /*
-
-This file contains all of the code running in the background that makes resumeBuilder.js possible. We call these helper functions because they support your code in this course.
-
-Don't worry, you'll learn what's going on in this file throughout the course. You won't need to make any changes to it until you start experimenting with inserting a Google Map in Problem Set 3.
-
-Cameron Pittman
+help.js file based on Udacity course material https://www.udacity.com/course/javascript-basics--ud804
 */
 
-
 /*
-These are HTML strings. As part of the course, you'll be using JavaScript functions
+These are HTML strings. As part of the course, JavaScript functions are used to
 replace the %data% placeholder text you see in them.
 */
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
@@ -70,7 +64,9 @@ var googleMap = '<div id="map"></div>';
 
 
 /*
-The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
+The International Name challenge in Lesson 2 where you'll create a function that
+will need this helper code to run. Don't delete! It hooks up your code to the button
+ you'll be appending.
 */
 $(document).ready(function() {
   $('button').click(function() {
@@ -95,9 +91,11 @@ function logClicks(x,y) {
 }
 
 $(document).click(function(loc) {
-  // your code goes here!
-});
+  var x = loc.pageX;
+  var y = loc.pageY;
 
+  logClicks(x, y);
+});
 
 
 /*
@@ -243,9 +241,6 @@ function initializeMap() {
 
 }
 
-/*
-Uncomment the code below when you're ready to implement a Google Map!
-*/
 
 // Calls the initializeMap() function when the page loads
 window.addEventListener('load', initializeMap);
