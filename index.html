@@ -37,22 +37,24 @@ index.html file based on Udacity course material https://www.udacity.com/course/
       <h2>Education</h2>
     </section>
 
-    <section id="mapDiv">
-      <h2>Where I've Lived and Worked</h2>
-    </section>
+    <div id="interactive">
+      <section id="mapDiv">
+        <h2>Where I've Lived and Worked</h2>
+      </section>
 
-    <section id="githubFeed">
-      <div id="githubFeedHeader">
-        <h2>GitHub Activity Feed</h2>
-        <template is="dom-bind">
-          <google-feeds feed="https://github.com/rogyw.atom" results="{{result}}" count="5"></google-feeds>
-          <p>Feed: <a href="{{result.link}}">{{result.title}}</a></p>
-        </template>
-      </div>
-      <div id="githubFeedContent">
-      </div>
-    </section>
-
+      <section id="githubFeed">
+        <div id="githubFeedHeader">
+          <h2>GitHub Activity Feed</h2>
+          <template is="dom-bind">
+            <google-feeds feed="https://github.com/rogyw.atom" results="{{result}}" count="5"></google-feeds>
+            <p>Feed: <a href="{{result.link}}">{{result.title}}</a></p>
+          </template>
+        </div>
+        <div id="githubFeedContent">
+        </div>
+      </section>
+    </div>
+    <div style="clear: both;"></div>
     <footer id="lets-connect" class="dark-gray">
       <h2 class="orange center-text">Let's Connect</h2>
       <ul id="footerContacts" class="flex-box"></ul>

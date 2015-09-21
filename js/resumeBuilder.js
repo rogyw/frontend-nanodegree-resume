@@ -79,7 +79,6 @@ bio.display = function () {
 
 bio.displayGithubFeed = function() {
   window.addEventListener('google-feeds-response', function(e) {
-      console.log(e.detail.feed);
       for(entry in e.detail.feed.entries) {
         var content = e.detail.feed.entries[entry].content;
 
