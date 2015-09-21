@@ -252,7 +252,7 @@ var work = {
       "title": "Online Coordinator",
       "location": "Matamata, Waikato, NZ",
       "dates": "April 2014 - current",
-      "description": "The purpose of the Online Co-ordinator is to ensure the Orienteering NZ is managing its online profile in a best-practice way. Wordpress site administration",
+      "description": "Ensuring Orienteering NZ is managing its online profile in a best-practice way. Wordpress site administration. Social media accounts management. Monitoring, issue management, and communication with remote site development team. Prioritised remote end user support.",
       "url": "http://www.orienteering.org.nz/"
 
     },
