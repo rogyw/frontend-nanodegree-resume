@@ -1,0 +1,21 @@
+{
+  "name": "frontend-nanodegree-resume",
+  "version": "0.1.0",
+  "description": "Nanodegree Resume for Roger Woodroofe",
+  "main": "index.html",
+  "authors": [
+    "rogyw"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "google-feeds": "GoogleWebComponents/google-feeds#^1.0.1",
+    "polymer": "Polymer/polymer#1.1.0"
+  }
+}

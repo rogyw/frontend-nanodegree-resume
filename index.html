@@ -4,36 +4,60 @@ index.html file based on Udacity course material https://www.udacity.com/course/
 -->
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
   <title>Resume</title>
-  <link href="css/style.css" rel="stylesheet">
+
   <script src="js/jQuery.js"></script>
   <script src="js/helper.js"></script>
-  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
-  <meta name="viewport" content="width=device-width">
+
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="bower_components/google-feeds/google-feeds.html">
+
+  <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+
+  <link rel="stylesheet" href="http://normalize-css.googlecode.com/svn/trunk/normalize.css">
+  <link rel="stylesheet" href="css/style.css" >
 </head>
 <body>
-  <div id="main" class="flex-box">
-    <div id="header" class="center-content clear-fix">
+  <main id="main" class="flex-box">
+    <header id="header" class="center-content clear-fix">
       <ul id="topContacts" class="flex-box"></ul>
-    </div>
+    </header>
     <div style="clear: both;"></div>
-    <div id="workExperience">
+
+    <section id="workExperience">
       <h2>Work Experience</h2>
-    </div>
-    <div id="projects" class="flexbox">
+    </section>
+
+    <section id="projects" class="flexbox">
       <h2>Projects</h2>
-    </div>
-    <div id="education" class="gray">
+    </section>
+
+    <section id="education" class="gray">
       <h2>Education</h2>
-    </div>
-    <div id="mapDiv">
+    </section>
+
+    <section id="mapDiv">
       <h2>Where I've Lived and Worked</h2>
-    </div>
-    <div id="lets-connect" class="dark-gray">
+    </section>
+
+    <section id="githubFeed">
+      <div id="githubFeedHeader">
+        <h2>GitHub Activity Feed</h2>
+        <template is="dom-bind">
+          <google-feeds feed="https://github.com/rogyw.atom" results="{{result}}" count="5"></google-feeds>
+          <p>Feed: <a href="{{result.link}}">{{result.title}}</a></p>
+        </template>
+      </div>
+      <div id="githubFeedContent">
+      </div>
+    </section>
+
+    <footer id="lets-connect" class="dark-gray">
       <h2 class="orange center-text">Let's Connect</h2>
-        <ul id="footerContacts" class="flex-box"></ul>
-    </div>
-  </div>
+      <ul id="footerContacts" class="flex-box"></ul>
+    </footer>
+  </main>
 
   <script src="js/resumeBuilder.js"></script>
 

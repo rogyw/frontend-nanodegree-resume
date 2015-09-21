@@ -77,6 +77,22 @@ bio.display = function () {
   }
 };
 
+bio.displayGithubFeed = function() {
+  window.addEventListener('google-feeds-response', function(e) {
+      console.log(e.detail.feed);
+      for(entry in e.detail.feed.entries) {
+        var content = e.detail.feed.entries[entry].content;
+
+        //Fix any relative URLs in Feed
+        content = content.replace(/href="\//g, 'href="https://www.github.com/');
+
+        $("#githubFeedContent").append("<hr>");
+        $("#githubFeedContent").append(content);
+      }
+    });
+}
+
+
 var education = {
   "schools": [
   {
@@ -359,6 +375,7 @@ function locationizer(work_obj) {
 }
 
 
+
 function inName(full_name) {
   //full_name is a string containing the names of a person seperated by space.
   //returns: all names are returned in Title Case and last name in ALL-CAPS.
@@ -388,6 +405,9 @@ function inName(full_name) {
     return internationalName;
 }
 
+
+
+
 // Uncomment the following line to add Udacity exercise - Surname Capitalisation button
 //$("#main").append(internationalizeButton);
 
@@ -397,3 +417,5 @@ work.display();
 education.display();
 
 $("#mapDiv").append(googleMap);
+
+bio.displayGithubFeed();
