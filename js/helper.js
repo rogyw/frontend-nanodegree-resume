@@ -1,10 +1,11 @@
-/*
-help.js file based on Udacity course material https://www.udacity.com/course/javascript-basics--ud804
+/**
+* help.js file based on Udacity course material
+* https://www.udacity.com/course/javascript-basics--ud804
 */
 
-/*
-These are HTML strings. As part of the course, JavaScript functions are used to
-replace the %data% placeholder text you see in them.
+/**
+* These are HTML strings. As part of the course, JavaScript functions are used to
+* replace the %data%, %url%, %title% placeholder text you see in them.
 */
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span class="role">%data%</span><hr/>';
@@ -63,29 +64,29 @@ var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
 
-/*
-The International Name challenge in Lesson 2 where you'll create a function that
-will need this helper code to run. Don't delete! It hooks up your code to the button
- you'll be appending.
+/**
+* The International Name challenge in course Lesson 2 where you'll create a function that
+* will need this helper code to run. Don't delete! It hooks up your code to the button
+* you'll be appending.
 */
-$(document).ready(function() {
+ $(document).ready(function() {
   $('button').click(function() {
     var iName = inName($("#name").text()) || function(){};
     $('#name').html(iName);
   });
 });
 
-/*
-The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
+/**
+* The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
 */
-clickLocations = [];
+var clickLocations = [];
 
 function logClicks(x,y) {
   clickLocations.push(
-    {
-      x: x,
-      y: y
-    }
+  {
+    x: x,
+    y: y
+  }
   );
   console.log('x location: ' + x + '; y location: ' + y);
 }
@@ -98,16 +99,16 @@ $(document).click(function(loc) {
 });
 
 
-/*
-This is the fun part. Here's where we generate the custom Google Map for the website.
-See the documentation below for more details.
-https://developers.google.com/maps/documentation/javascript/reference
+/**
+* This is the fun part. Here's where we generate the custom Google Map for the website.
+* See the documentation below for more details.
+* https://developers.google.com/maps/documentation/javascript/reference
 */
 var map;    // declares a global map variable
 
 
-/*
-Start here! initializeMap() is called when page is loaded.
+/**
+* Start here! initializeMap() is called when page is loaded.
 */
 function initializeMap() {
 
@@ -117,17 +118,16 @@ function initializeMap() {
     disableDefaultUI: true,
   };
 
-  /*
-  For the map to be displayed, the googleMap var must be
-  appended to #mapDiv in resumeBuilder.js.
+/**
+* For the map to be displayed, the googleMap var must be
+* appended to #mapDiv in resumeBuilder.js.
   */
   map = new google.maps.Map(document.querySelector("#map"), mapOptions);
 
-
-  /*
-  locationFinder() returns an array of every location string from the JSONs
-  written for bio, education, and work.
-  */
+/**
+* locationFinder() returns an array of every location string from the JSONs
+* written for bio, education, and work.
+*/
   function locationFinder() {
 
     // initializes an empty array
@@ -151,11 +151,11 @@ function initializeMap() {
     return locations;
   }
 
-  /*
-  createMapMarker(placeData) reads Google Places search results to create map pins.
-  placeData is the object returned from search results containing information
-  about a single location.
-  */
+/**
+* createMapMarker(placeData) reads Google Places search results to create map pins.
+* placeData is the object returned from search results containing information
+* about a single location.
+*/
   function createMapMarker(placeData) {
 
     // The next lines save location data from the search result object to local variables
@@ -195,20 +195,20 @@ function initializeMap() {
     map.setCenter(bounds.getCenter());
   }
 
-  /*
-  callback(results, status) makes sure the search returned results for a location.
-  If so, it creates a new map marker for that location.
-  */
+/**
+* callback(results, status) makes sure the search returned results for a location.
+* If so, it creates a new map marker for that location.
+*/
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       createMapMarker(results[0]);
     }
   }
 
-  /*
-  pinPoster(locations) takes in the array of locations created by locationFinder()
-  and fires off Google place searches for each location
-  */
+/**
+* pinPoster(locations) takes in the array of locations created by locationFinder()
+* and fires off Google place searches for each location
+*/
   function pinPoster(locations) {
 
     // creates a Google place search service object. PlacesService does the work of
