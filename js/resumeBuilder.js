@@ -84,6 +84,7 @@ bio.display = function () {
   $("#footerContacts").append(formattedLinkedin);
 
   $("#header").append(formattedWelcomeMsg);
+  $("title").prepend(bio.name + " - ");
 
   if(bio.skills.length > 0) {
     $("#header").append(HTMLskillsStart);
