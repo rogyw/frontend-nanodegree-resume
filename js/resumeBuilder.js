@@ -131,6 +131,12 @@ var education = {
   }],
   "onlineCourses": [
   {
+    "title": "Intro to jQuery",
+    "school": "Udacity",
+    "dates": "2015",
+    "url": "https://www.udacity.com/course/intro-to-jquery--ud245"
+  },
+  {
     "title": "Javascript Basics",
     "school": "Udacity",
     "dates": "2015",
