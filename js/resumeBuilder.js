@@ -12,7 +12,7 @@
 var bio = {
   "name" : "Roger Woodroofe",
   "role" : "Web Developer and IT Support",
-  "welcomeMsg" : "I'm available - contact me now.",
+  "welcomeMsg" : "I'm available for work in Auckland, Waikato, or remote - contact me now.",
   "bioPic" : "images/roger-profile-image.jpg",
   "contacts" : {
     "mobile" : "+64 27 2932397",
@@ -71,7 +71,7 @@ bio.display = function () {
   $("#topContacts").append(formattedEmail);
   $("#topContacts").append(formattedGithub);
   $("#topContacts").append(formattedTwitter);
-  $("#topContacts").append(formattedBlog);
+  /*$("#topContacts").append(formattedBlog);*/
   $("#topContacts").append(formattedLocation);
   $("#topContacts").append(formattedLinkedin);
   $("#topContacts").append(formattedContactGeneric);
