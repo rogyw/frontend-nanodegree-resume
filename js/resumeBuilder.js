@@ -384,6 +384,13 @@ work.display = function() {
 */
 var projects = {
   "projects": [
+   {
+    "title": "Silverstripe Website - AOC",
+    "dates": "2015",
+    "description": "Silverstripe CMS setup. Added content from old static sites. Template customised.",
+    "images": ["http://roger.navevent.co.nz/portfolio/img/past_work_aoc_ss3.png"],
+    "url": "http://www.orienteeringauckland.org.nz/"
+  },
   {
     "title": "Joomla Template (Codenza) - BGate",
     "dates": "2012",
