@@ -80,7 +80,7 @@ bio.display = function () {
   $("#footerContacts").append(formattedEmail);
   $("#footerContacts").append(formattedGithub);
   $("#footerContacts").append(formattedTwitter);
-  $("#footerContacts").append(formattedBlog);
+  /*$("#footerContacts").append(formattedBlog);*/
   $("#footerContacts").append(formattedLinkedin);
 
   $("#header").append(formattedWelcomeMsg);
