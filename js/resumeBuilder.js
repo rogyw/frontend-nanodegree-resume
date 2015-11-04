@@ -132,6 +132,24 @@ var education = {
   }],
   "onlineCourses": [
   {
+    "title": "Writing READMEs",
+    "school": "Udacity",
+    "dates": "2015",
+    "url": "https://www.udacity.com/course/writing-readmes--ud777"
+  },
+  {
+    "title": "Object-Oriented Javascript",
+    "school": "Udacity",
+    "dates": "2015",
+    "url": "https://www.udacity.com/course/object-oriented-javascript--ud015"
+  },
+  {
+    "title": "HTML5 Canvas",
+    "school": "Udacity",
+    "dates": "2015",
+    "url": "https://www.udacity.com/course/html5-canvas--ud292"
+  },
+  {
     "title": "Intro to jQuery",
     "school": "Udacity",
     "dates": "2015",
