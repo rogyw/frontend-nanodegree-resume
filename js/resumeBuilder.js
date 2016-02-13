@@ -20,7 +20,7 @@ var bio = {
     "twitter" : "rogyw",
     "github" : "rogyw",
     "blog" : "roger.navevent.co.nz/blog",
-    "location" : "Waikato, NZ",
+    "location" : "Waikato/Auckland NZ",
     "genericPost" : "PO Box 11390, Ellerslie, Auckland 1542, New Zealand",
     "genericPostTitle" : "Post",
     "linkedin": "https://nz.linkedin.com/in/rogerwoodroofe"
@@ -131,6 +131,18 @@ var education = {
     "url" : "http://www.auckland.ac.nz/"
   }],
   "onlineCourses": [
+  {
+    "title": "Browser Rendering Optimization",
+    "school": "Udacity",
+    "dates": "2016",
+    "url": "https://www.udacity.com/courses/ud860"
+  },
+  {
+    "title": "Website Performance Optimization",
+    "school": "Udacity",
+    "dates": "2015",
+    "url": "https://www.udacity.com/courses/ud884"
+  },
   {
     "title": "Writing READMEs",
     "school": "Udacity",
