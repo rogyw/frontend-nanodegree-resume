@@ -147,55 +147,55 @@ var education = {
     "title": "Writing READMEs",
     "school": "Udacity",
     "dates": "2015",
-    "url": "https://www.udacity.com/course/writing-readmes--ud777"
+    "url": "https://www.udacity.com/courses/ud777"
   },
   {
     "title": "Object-Oriented Javascript",
     "school": "Udacity",
     "dates": "2015",
-    "url": "https://www.udacity.com/course/object-oriented-javascript--ud015"
+    "url": "https://www.udacity.com/courses/ud015"
   },
   {
     "title": "HTML5 Canvas",
     "school": "Udacity",
     "dates": "2015",
-    "url": "https://www.udacity.com/course/html5-canvas--ud292"
+    "url": "https://www.udacity.com/courses/ud292"
   },
   {
     "title": "Intro to jQuery",
     "school": "Udacity",
     "dates": "2015",
-    "url": "https://www.udacity.com/course/intro-to-jquery--ud245"
+    "url": "https://www.udacity.com/courses/ud245"
   },
   {
     "title": "Javascript Basics",
     "school": "Udacity",
     "dates": "2015",
-    "url": "https://www.udacity.com/course/javascript-basics--ud804"
+    "url": "https://www.udacity.com/courses/ud804"
   },
   {
     "title": "How to use Git and GitHub",
     "school": "Udacity",
     "dates": "2015",
-    "url": "https://www.udacity.com/course/how-to-use-git-and-github--ud775"
+    "url": "https://www.udacity.com/courses/ud775"
   },
   {
     "title": "Responsive Images",
     "school": "Udacity",
     "dates": "2015",
-    "url": "https://www.udacity.com/course/responsive-images--ud882"
+    "url": "https://www.udacity.com/courses/ud882"
   },
   {
     "title": "Responsive Web Design Fundamentals",
     "school": "Udacity",
     "dates": "2015",
-    "url": "https://www.udacity.com/course/responsive-web-design-fundamentals--ud893"
+    "url": "https://www.udacity.com/courses/ud893"
   },
   {
     "title": "Intro to HTML and CSS",
     "school": "Udacity",
     "dates": "2015",
-    "url": "https://www.udacity.com/course/intro-to-html-and-css--ud304"
+    "url": "https://www.udacity.com/courses/ud304"
   }],
   "otherCourses": [
   {
