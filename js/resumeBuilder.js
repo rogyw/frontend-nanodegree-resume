@@ -20,6 +20,7 @@ var bio = {
     "twitter" : "rogyw",
     "github" : "rogyw",
     "blog" : "roger.navevent.co.nz/blog",
+    "portfolio" : "roger.navevent.co.nz/portfolio/",
     "location" : "Waikato/Auckland NZ",
     "genericPost" : "PO Box 11390, Ellerslie, Auckland 1542, New Zealand",
     "genericPostTitle" : "Post",
@@ -58,6 +59,7 @@ bio.display = function () {
   var formattedGithub = HTMLgithub.replace(/%data%/g, bio.contacts.github);
   var formattedLinkedin = HTMLlinkedin.replace(/%data%/g, bio.contacts.linkedin);
   var formattedBlog = HTMLblog.replace(/%data%/g, bio.contacts.blog);
+  var formattedPortfolio = HTMLportfolio.replace(/%data%/g, bio.contacts.portfolio);
   var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 
   var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
@@ -72,6 +74,7 @@ bio.display = function () {
   $("#topContacts").append(formattedGithub);
   $("#topContacts").append(formattedTwitter);
   /*$("#topContacts").append(formattedBlog);*/
+  $("#topContacts").append(formattedPortfolio);
   $("#topContacts").append(formattedLocation);
   $("#topContacts").append(formattedLinkedin);
   $("#topContacts").append(formattedContactGeneric);
@@ -81,6 +84,7 @@ bio.display = function () {
   $("#footerContacts").append(formattedGithub);
   $("#footerContacts").append(formattedTwitter);
   /*$("#footerContacts").append(formattedBlog);*/
+  $("#footerContacts").append(formattedPortfolio);
   $("#footerContacts").append(formattedLinkedin);
 
   $("#header").append(formattedWelcomeMsg);
