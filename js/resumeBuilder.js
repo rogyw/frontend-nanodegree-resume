@@ -444,7 +444,7 @@ $(function() {
 
     // ==================== ViewBio ====================
     /**
-     * @namespace ViewBio
+     * @namespace viewBio
      * @description View for Biographical information.  A view in "Model-View-Octopus" structure.
      */
     var viewBio = {
@@ -714,7 +714,7 @@ $(function() {
 
     // ==================== ViewWork ====================
     /**
-     * @namespace ViewWork
+     * @namespace viewWork
      * @description View for Work information.  A view in "Model-View-Octopus" structure.
      */
     var viewWork = {
@@ -762,7 +762,7 @@ $(function() {
 
     // ==================== ViewProjects ====================
     /**
-     * @namespace ViewProjects
+     * @namespace viewProjects
      * @description View for Projects information.  A view in "Model-View-Octopus" structure.
      */
     var viewProjects = {
@@ -809,7 +809,7 @@ $(function() {
 
     // ==================== ViewGitHubFeed ====================
     /**
-     * @namespace ViewGitHubFeed
+     * @namespace viewGitHubFeed
      * @description View for the individuals GitHub Feed.  A view in "Model-View-Octopus" structure.
      */
     var viewGitHubFeed = {
