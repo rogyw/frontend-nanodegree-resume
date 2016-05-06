@@ -307,11 +307,15 @@ $(function() {
             viewWork.init();
             viewEducation.init();
             viewGitHubFeed.init();
+            viewMap.init();
 
             viewBio.render();
             viewProjects.render();
             viewWork.render();
             viewEducation.render();
+            viewMap.render();
+
+
         },
 
         /**
@@ -856,24 +860,32 @@ $(function() {
          */
         "init": function() {
 
+            // For the map to be displayed, the #map div must be
+            // appended to #mapDiv in resumeBuilder.js.
+            viewMap.googleMap = '<div id="map"></div>';
+            $("#mapDiv").append(viewMap.googleMap);
+
+            // Calls the initializeMap() function when the page loads
+            window.addEventListener('load', viewMap.render);
+
+            // Vanilla JS way to listen for resizing of the window
+            // and adjust map bounds
+            window.addEventListener('resize', viewMap.resizeMap);
+        },
+
+
+        /**
+         * @function viewMap.render
+         * @description renders the view viewMap.
+         */
+        "render": function() {
+
             var locations;
             var mapOptions = {
                 disableDefaultUI: true,
             };
 
-            // For the map to be displayed, the googleMap var must be
-            // appended to #mapDiv in resumeBuilder.js.
             map = new google.maps.Map(document.querySelector("#map"), mapOptions);
-
-            viewMap.googleMap = '<div id="map"></div>';
-            $("#mapDiv").append(viewMap.googleMap);
-
-            // Calls the initializeMap() function when the page loads
-            window.addEventListener('load', viewMap.init);
-
-            // Vanilla JS way to listen for resizing of the window
-            // and adjust map bounds
-            window.addEventListener('resize', viewMap.resizeMap);
 
             // Sets the boundaries of the map based on pin locations
             window.mapBounds = new google.maps.LatLngBounds();
@@ -897,7 +909,6 @@ $(function() {
          * about a single location.
          */
         "createMapMarker": function(placeData) {
-
             // The next lines save location data from the search result object to local variables
             var lat = placeData.geometry.location.lat(); // latitude from the place service
             var lon = placeData.geometry.location.lng(); // longitude from the place service
@@ -950,7 +961,6 @@ $(function() {
          * and fires off Google place searches for each location
          */
         "pinPoster": function(locations) {
-
             // creates a Google place search service object. PlacesService does the work of
             // actually searching for location data.
             var service = new google.maps.places.PlacesService(map);
@@ -969,7 +979,6 @@ $(function() {
             }
         }
     };
-
 
     // ==================== Main ====================
     octopus.init();
