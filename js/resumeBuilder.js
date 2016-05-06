@@ -1,9 +1,9 @@
 "use strict";
-/**
- *
+/*
  * File For Roger Woodroofe's Resume content
  * Based on Udacity course material https://www.udacity.com/course/javascript-basics--ud804
- *
+ * Revised as an excercise refactoring to use model-view-* (model-view-octopus)
+ * TODO Further refactoring could be completed.
  */
 
 // set jshint to ignore console, alert, etc
@@ -13,18 +13,24 @@
 /* global $: false */
 /* global google */
 
-// declare global map variable
+// declare a global map variable
 var map;
 
 $(function() {
-    /* ==================== Model ==================== */
-    /** @namespace */
+    // ==================== Model ====================
+    /**
+     * @namespace model
+     * @description Model for Model-View-Object application organisation
+     */
     var model = {
+        /**
+         * @function model.init
+         * @description initialises the application model
+         */
         "init": function() {
 
             /**
-             * bio JSON object
-             * @description stores biographical related values for an individual
+             * @description {object} model.bio - JSON object with biographical related values for an individual
              */
             model.bio = {
                 "name": "Roger Woodroofe",
@@ -61,8 +67,7 @@ $(function() {
             };
 
             /**
-             * education JSON object
-             * @description stores education related values for an individual
+             * @description {object} model.education - JSON object with education related values for an individual
              */
             model.education = {
                 "schools": [{
@@ -157,8 +162,7 @@ $(function() {
             };
 
             /**
-             * work JSON object
-             * @description stores work related values for an individual
+             * @description {object} model.work - JSON object with work related values for an individual
              */
             model.work = {
                 "jobs": [{
@@ -206,9 +210,9 @@ $(function() {
                     "url": "http://roger.navevent.co.nz/"
                 }]
             };
+
             /**
-             * projects JSON object
-             * @description stores project related values for an individual
+             * @description {object} model.projects - JSON object with projects related values for an individual
              */
             model.projects = {
                 "projects": [{
@@ -232,34 +236,70 @@ $(function() {
                 }]
             };
 
+            /**
+             * @description {boolean} model.internationalizeEnabled - toggle state of internationalise name capitalisation excercise.
+             */
             model.internationalizeEnabled = false;
         },
 
+        /**
+         * @function model.getInternationliseEnabled
+         * @description returns the enabled state of internationalise button
+         * @returns {boolean} status of Internationalise Button. True if enabled, false if disabled.
+         */
         "getInternationliseEnabled": function() {
             return (model.internationalizeEnabled);
         },
 
+        /**
+         * @function model.getAllBio
+         * @description returns the Bio information
+         * @returns {Object} JSON Bio object
+         */
         "getAllBio": function() {
             return model.bio;
         },
 
+        /**
+         * @function model.getAllWork
+         * @description returns the Work information
+         * @returns {Object} JSON Work object
+         */
         "getAllWork": function() {
             return model.work;
         },
 
+        /**
+         * @function model.getAllEducation
+         * @description returns the Education information
+         * @returns {Object} JSON Education object
+         */
         "getAllEducation": function() {
             return model.education;
         },
 
+        /**
+         * @function model.getAllProjects
+         * @description returns the Projects information
+         * @returns {Object} JSON Projects object
+         */
         "getAllProjects": function() {
             return model.projects;
         }
     };
 
 
-    /* ==================== Octopus ==================== */
-    /** @namespace */
+    // ==================== Octopus ====================
+    /**
+     * @namespace octopus
+     * @description The Octopus in "Model-View-Octopus"
+     */
     var octopus = {
+
+        /**
+         * @function octopus.init
+         * @description initialises the application, and triggers the display of all views
+         */
         "init": function() {
             model.init();
             viewBio.init();
@@ -274,29 +314,55 @@ $(function() {
             viewEducation.render();
         },
 
+        /**
+         * @function octopus.getInternationliseEnabled
+         * @description returns the enabled state of internationalise button
+         * @returns {boolean} true if enabled, false if disabled
+         */
         "getInternationliseEnabled": function() {
             return model.getInternationliseEnabled();
         },
 
+        /**
+         * @function octopus.getAllBio
+         * @description returns the Bio information
+         * @returns {Object} JSON Bio object
+         */
         "getAllBio": function() {
             return model.getAllBio();
         },
 
+        /**
+         * @function octopus.getAllWork
+         * @description returns the Work information
+         * @returns {Object} JSON Work object
+         */
         "getAllWork": function() {
             return model.getAllWork();
         },
 
+        /**
+         * @function octopus.getAllEducation
+         * @description returns the Education information
+         * @returns {Object} JSON Education object
+         */
         "getAllEducation": function() {
             return model.getAllEducation();
         },
 
+        /**
+         * @function octopus.getAllProjects
+         * @description returns the Projects information
+         * @returns {Object} JSON Projects object
+         */
         "getAllProjects": function() {
             return model.getAllProjects();
         },
 
         /**
-         * @description locationizer provides a list of locations from the provided
-         * work_obj JSON object. Used by helper.js map function.
+         * @function octopus.locationizer
+         * @description provides a list of locations from the provided
+         * work_obj JSON object.
          * @param {object} work_obj - the work JSON object containing work information
          * @returns {array} an array of location strings
          */
@@ -309,9 +375,12 @@ $(function() {
                 return locations;
             }
         },
+
         /**
-         * locationFinder() returns an array of every location string from the JSONs
+         * @function octopus.locationFinder
+         * @description returns an array of every location string from the JSONs
          * written for bio, education, and work.
+         * @returns {string[]} locations included in bio, education and work
          */
         "locationFinder": function() {
 
@@ -339,9 +408,9 @@ $(function() {
             return locations;
         },
 
-
         /**
-         * @description inName - international name function- capitalises the surname.
+         * @function octopus.inName
+         * @description international name function - capitalises the surname.
          * @param {string} full_name - names of a person seperated by space. e.g. "Joe Jack Bloggs"
          * @returns {string} all names are returned in Title Case and last name in ALL-CAPS.
          */
@@ -373,10 +442,18 @@ $(function() {
     };
 
 
-    /* ==================== ViewBio ==================== */
-    /** @namespace */
+    // ==================== ViewBio ====================
+    /**
+     * @namespace ViewBio
+     * @description View for Biographical information.  A view in "Model-View-Octopus" structure.
+     */
     var viewBio = {
 
+        /**
+         * @function viewBio.init
+         * @description inialises the application view viewBio.
+         * Initialises the views HTML template strings and gets the Bio JSON object.
+         */
         "init": function() {
             /**
              * These are HTML strings. As part of the course, JavaScript functions are used to
@@ -444,8 +521,9 @@ $(function() {
 
 
         /**
+         * @function viewBio.render
          * @description Displays the individual's biographical information using the
-         * bio JSON object and HTML template strings
+         * bio JSON object and the views HTML template strings.
          */
         "render": function() {
             var bio = viewBio.bio;
@@ -509,16 +587,27 @@ $(function() {
     };
 
 
-    /* ==================== ViewEducation ==================== */
-    /** @namespace */
+    // ==================== ViewEducation ====================
+    /**
+     * @namespace viewEducation
+     * @description View for Individiual's Education information.
+     * A view in "Model-View-Octopus" structure.
+     */
     var viewEducation = {
+
+        /**
+         * @function viewEducation.init
+         * @description inialises the application view viewEducation.
+         * Initialises the views HTML template strings and gets the JSON object.
+         */
         "init": function() {
             viewEducation.education = octopus.getAllEducation();
         },
 
         /**
+         * @function viewEducation.displaySchools
          * @description Displays the individual's School information using the
-         * education JSON object and HTML template strings. Requires HTML tag with ID education
+         * education JSON object and HTML template strings. Requires HTML tag with ID "education".
          */
         "displaySchools": function() {
 
@@ -546,15 +635,17 @@ $(function() {
         },
 
         /**
+         * @function viewEducation.displayOnlineCourses
          * @description Displays the individual's online courses information using the
-         * education JSON object and HTML template strings. Requires HTML tag with ID education
+         * education JSON object and HTML template strings.
+         * Requires HTML tag with ID education, and assumes div with class "education-entry" is available.
          */
         "displayOnlineCourses": function() {
-            // Takes in the heading to display and the courses
-            // assumes div with class education-entry is available
 
             var education = viewEducation.education;
 
+            // Takes in the heading to display and the courses
+            // assumes div with class education-entry is available
             if (education.onlineCourses.length > 0) {
                 $("#education").append(viewBio.HTMLonlineClasses);
 
@@ -577,11 +668,12 @@ $(function() {
         },
 
         /**
+         * @function viewEducation.displayOtherCourses
          * @description Displays the individual's Other Courses information using the
-         * education JSON object and HTML template strings. Requires HTML tag with ID education
+         * education JSON object and HTML template strings. Requires HTML tag with ID education.
+         * Assumes div with class "education-entry" is available.
          */
         "displayOtherCourses": function() {
-
             var education = viewEducation.education;
 
             if (education.otherCourses.length > 0) {
@@ -608,6 +700,7 @@ $(function() {
         },
 
         /**
+         * @function viewEducation.render
          * @description Displays the individual's education information using the
          * education JSON object and associated functions for each subtype of education.
          */
@@ -619,15 +712,27 @@ $(function() {
     };
 
 
-    /* ==================== ViewWork ==================== */
-    /** @namespace */
+    // ==================== ViewWork ====================
+    /**
+     * @namespace ViewWork
+     * @description View for Work information.  A view in "Model-View-Octopus" structure.
+     */
     var viewWork = {
+
+        /**
+         * @function viewWork.init
+         * @description inialises the application view viewWork.
+         * Initialises the views HTML template strings and gets the Work JSON object.
+         */
         "init": function() {
             viewWork.work = octopus.getAllWork();
         },
+
         /**
+         * @function viewWork.render
          * @description Displays the individual's work information using the
          * work JSON object and HTML template strings. Requires HTML tag with ID workExperience.
+         * Assumes div with class "work-entry" is available.
          */
         "render": function() {
             var work = viewWork.work;
@@ -655,14 +760,24 @@ $(function() {
     };
 
 
-    /* ==================== ViewProjects ==================== */
-    /** @namespace */
+    // ==================== ViewProjects ====================
+    /**
+     * @namespace ViewProjects
+     * @description View for Projects information.  A view in "Model-View-Octopus" structure.
+     */
     var viewProjects = {
+
+        /**
+         * @function viewProjects.init
+         * @description inialises the application view viewProjects.
+         * Initialises the views HTML template strings and gets the Projects JSON object.
+         */
         "init": function() {
             viewProjects.projects = octopus.getAllProjects();
         },
 
         /**
+         * @function viewProjects.render
          * @description Displays the individual's project information using the
          * projects JSON object and HTML template strings. Requires HTML tag with ID projects
          */
@@ -692,12 +807,18 @@ $(function() {
         }
     };
 
-    /* ==================== ViewGitHubFeed ==================== */
-    /** @namespace */
+    // ==================== ViewGitHubFeed ====================
+    /**
+     * @namespace ViewGitHubFeed
+     * @description View for the individuals GitHub Feed.  A view in "Model-View-Octopus" structure.
+     */
     var viewGitHubFeed = {
+
         /**
-         * @description Displays the individual's GitHub feed using the
-         * polymer google-feeds response. HTML must include a tag with ID githubFeedContent
+         * @function viewGitHubFeed.init
+         * @description inialises the application view viewGitHubFeed.
+         * Displays the individual's GitHub feed using the polymer google-feeds response.
+         * HTML must include a tag with ID githubFeedContent
          */
         "init": function() {
             window.addEventListener("google-feeds-response", function(e) {
@@ -715,15 +836,22 @@ $(function() {
     };
 
 
-    /* ==================== ViewMap ==================== */
-    /*
-     * This is the fun part. Here's where we generate the custom Google Map for the website.
+    // ==================== ViewMap ====================
+    /**
+     * @namespace viewMap
+     * @description View for the individuals Map of Work Locations.
+     * A view in "Model-View-Octopus" structure.
+     * Generates the custom Google Map for the website.
      * See the documentation below for more details.
      * https://developers.google.com/maps/documentation/javascript/reference
      */
-    /** @namespace */
     var viewMap = {
 
+        /**
+         * @function viewMap.init
+         * @description inialises the application view viewMap.
+         * Initialises the view for generating the custom Google Map displayed after page load.
+         */
         "init": function() {
 
             var locations;
@@ -841,6 +969,6 @@ $(function() {
     };
 
 
-    /* ==================== Main ==================== */
+    // ==================== Main ====================
     octopus.init();
 });
