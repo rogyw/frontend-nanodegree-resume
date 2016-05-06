@@ -478,41 +478,6 @@ $(function() {
             viewBio.HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
             viewBio.HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
-            viewBio.HTMLworkStart = '<div class="work-entry"></div>';
-            viewBio.HTMLworkEmployer = '<a href="%url%">%data%';
-            viewBio.HTMLworkTitle = ' - %data%</a>';
-            viewBio.HTMLworkDates = '<div class="date-text">%data%</div>';
-            viewBio.HTMLworkLocation = '<div class="location-text">%data%</div>';
-            viewBio.HTMLworkDescription = '<p><br>%data%</p>';
-
-            viewBio.HTMLprojectStart = '<div class="project-entry"></div>';
-            viewBio.HTMLprojectTitle = '<a href="%url%">%data%</a>';
-            viewBio.HTMLprojectDates = '<div class="date-text">%data%</div>';
-            viewBio.HTMLprojectDescription = '<p><br>%data%</p>';
-            viewBio.HTMLprojectImage = '<img src="%data%">';
-
-            viewBio.HTMLschoolStart = '<div class="education-entry"></div>';
-            viewBio.HTMLschoolName = '<a href="%url%">%data%';
-            viewBio.HTMLschoolDegree = ' -- %data%</a>';
-            viewBio.HTMLschoolDates = '<div class="date-text">%data%</div>';
-            viewBio.HTMLschoolLocation = '<div class="location-text">%data%</div>';
-            viewBio.HTMLschoolMajor = '<em><br>Major: %data%</em>';
-
-            viewBio.HTMLonlineStart = '<div class="education-entry"></div>';
-            viewBio.HTMLonlineClasses = '<h3>Online Classes</h3>';
-            viewBio.HTMLonlineTitle = '<a href="%url%">%data%';
-            viewBio.HTMLonlineSchool = ' - %data%</a>';
-            viewBio.HTMLonlineDates = '<div class="date-text">%data%</div>';
-            viewBio.HTMLonlineURL = '<br><a class="course-url" href="%data%" target="_blank">%data%</a>';
-
-            viewBio.HTMLotherStart = '<div class="education-entry"></div>';
-            viewBio.HTMLotherClasses = '<h3>Other Classes</h3>';
-            viewBio.HTMLotherTitle = '<a href="%url%">%data%';
-            viewBio.HTMLotherSchool = ' - %data%</a>';
-            viewBio.HTMLotherLocation = '<div class="location-text">%data%</div>';
-            viewBio.HTMLotherDates = '<div class="date-text">%data%</div>';
-            viewBio.HTMLotherURL = '<br><a class="course-url" href="%data%" target="_blank">%data%</a>';
-
             viewBio.internationalizeButton = '<button>Internationalize</button>';
 
             viewBio.bio = octopus.getAllBio();
@@ -601,6 +566,29 @@ $(function() {
          * Initialises the views HTML template strings and gets the JSON object.
          */
         "init": function() {
+
+            viewEducation.HTMLschoolStart = '<div class="education-entry"></div>';
+            viewEducation.HTMLschoolName = '<a href="%url%">%data%';
+            viewEducation.HTMLschoolDegree = ' -- %data%</a>';
+            viewEducation.HTMLschoolDates = '<div class="date-text">%data%</div>';
+            viewEducation.HTMLschoolLocation = '<div class="location-text">%data%</div>';
+            viewEducation.HTMLschoolMajor = '<em><br>Major: %data%</em>';
+
+            viewEducation.HTMLonlineStart = '<div class="education-entry"></div>';
+            viewEducation.HTMLonlineClasses = '<h3>Online Classes</h3>';
+            viewEducation.HTMLonlineTitle = '<a href="%url%">%data%';
+            viewEducation.HTMLonlineSchool = ' - %data%</a>';
+            viewEducation.HTMLonlineDates = '<div class="date-text">%data%</div>';
+            viewEducation.HTMLonlineURL = '<br><a class="course-url" href="%data%" target="_blank">%data%</a>';
+
+            viewEducation.HTMLotherStart = '<div class="education-entry"></div>';
+            viewEducation.HTMLotherClasses = '<h3>Other Classes</h3>';
+            viewEducation.HTMLotherTitle = '<a href="%url%">%data%';
+            viewEducation.HTMLotherSchool = ' - %data%</a>';
+            viewEducation.HTMLotherLocation = '<div class="location-text">%data%</div>';
+            viewEducation.HTMLotherDates = '<div class="date-text">%data%</div>';
+            viewEducation.HTMLotherURL = '<br><a class="course-url" href="%data%" target="_blank">%data%</a>';
+
             viewEducation.education = octopus.getAllEducation();
         },
 
@@ -615,16 +603,16 @@ $(function() {
 
             if (education.schools.length > 0) {
                 for (var school in education.schools) {
-                    $("#education").append(viewBio.HTMLschoolStart);
+                    $("#education").append(viewEducation.HTMLschoolStart);
 
-                    var formattedSchoolName = viewBio.HTMLschoolName.replace("%data%", education.schools[school].name);
+                    var formattedSchoolName = viewEducation.HTMLschoolName.replace("%data%", education.schools[school].name);
                     formattedSchoolName = formattedSchoolName.replace("%url%", education.schools[school].url);
-                    var formattedSchoolDegree = viewBio.HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+                    var formattedSchoolDegree = viewEducation.HTMLschoolDegree.replace("%data%", education.schools[school].degree);
                     var formattedSchoolNameDegree = formattedSchoolName + formattedSchoolDegree;
 
-                    var formattedSchoolLocation = viewBio.HTMLschoolLocation.replace("%data%", education.schools[school].location);
-                    var formattedSchoolMajor = viewBio.HTMLschoolMajor.replace("%data%", education.schools[school].major);
-                    var formattedSchoolDates = viewBio.HTMLschoolDates.replace("%data%", education.schools[school].years);
+                    var formattedSchoolLocation = viewEducation.HTMLschoolLocation.replace("%data%", education.schools[school].location);
+                    var formattedSchoolMajor = viewEducation.HTMLschoolMajor.replace("%data%", education.schools[school].major);
+                    var formattedSchoolDates = viewEducation.HTMLschoolDates.replace("%data%", education.schools[school].years);
 
                     $(".education-entry:last").append(formattedSchoolNameDegree);
                     $(".education-entry:last").append(formattedSchoolDates);
@@ -647,18 +635,18 @@ $(function() {
             // Takes in the heading to display and the courses
             // assumes div with class education-entry is available
             if (education.onlineCourses.length > 0) {
-                $("#education").append(viewBio.HTMLonlineClasses);
+                $("#education").append(viewEducation.HTMLonlineClasses);
 
                 for (var course in education.onlineCourses) {
-                    $("#education").append(viewBio.HTMLonlineStart);
+                    $("#education").append(viewEducation.HTMLonlineStart);
 
-                    var formattedCourseTitle = viewBio.HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
+                    var formattedCourseTitle = viewEducation.HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
                     formattedCourseTitle = formattedCourseTitle.replace("%url%", education.onlineCourses[course].url);
-                    var formattedCourseSchool = viewBio.HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
+                    var formattedCourseSchool = viewEducation.HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
                     var formattedCourseTitleSchool = formattedCourseTitle + formattedCourseSchool;
 
-                    var formattedCourseDates = viewBio.HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
-                    var formattedCourseURL = viewBio.HTMLonlineURL.replace(/%data%/g, education.onlineCourses[course].url);
+                    var formattedCourseDates = viewEducation.HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
+                    var formattedCourseURL = viewEducation.HTMLonlineURL.replace(/%data%/g, education.onlineCourses[course].url);
 
                     $(".education-entry:last").append(formattedCourseTitleSchool);
                     $(".education-entry:last").append(formattedCourseDates);
@@ -677,19 +665,19 @@ $(function() {
             var education = viewEducation.education;
 
             if (education.otherCourses.length > 0) {
-                $("#education").append(viewBio.HTMLotherClasses);
+                $("#education").append(viewEducation.HTMLotherClasses);
 
                 for (var course in education.otherCourses) {
-                    $("#education").append(viewBio.HTMLotherStart);
+                    $("#education").append(viewEducation.HTMLotherStart);
 
-                    var formattedCourseTitle = viewBio.HTMLotherTitle.replace("%data%", education.otherCourses[course].title);
+                    var formattedCourseTitle = viewEducation.HTMLotherTitle.replace("%data%", education.otherCourses[course].title);
                     formattedCourseTitle = formattedCourseTitle.replace("%url%", education.otherCourses[course].url);
-                    var formattedCourseSchool = viewBio.HTMLotherSchool.replace("%data%", education.otherCourses[course].school);
+                    var formattedCourseSchool = viewEducation.HTMLotherSchool.replace("%data%", education.otherCourses[course].school);
                     var formattedCourseTitleSchool = formattedCourseTitle + formattedCourseSchool;
 
-                    var formattedCourseLocation = viewBio.HTMLotherLocation.replace("%data%", education.otherCourses[course].location);
-                    var formattedCourseDates = viewBio.HTMLotherDates.replace("%data%", education.otherCourses[course].dates);
-                    var formattedCourseURL = viewBio.HTMLotherURL.replace(/%data%/g, education.otherCourses[course].url);
+                    var formattedCourseLocation = viewEducation.HTMLotherLocation.replace("%data%", education.otherCourses[course].location);
+                    var formattedCourseDates = viewEducation.HTMLotherDates.replace("%data%", education.otherCourses[course].dates);
+                    var formattedCourseURL = viewEducation.HTMLotherURL.replace(/%data%/g, education.otherCourses[course].url);
 
                     $(".education-entry:last").append(formattedCourseTitleSchool);
                     $(".education-entry:last").append(formattedCourseLocation);
@@ -725,6 +713,13 @@ $(function() {
          * Initialises the views HTML template strings and gets the Work JSON object.
          */
         "init": function() {
+            viewWork.HTMLworkStart = '<div class="work-entry"></div>';
+            viewWork.HTMLworkEmployer = '<a href="%url%">%data%';
+            viewWork.HTMLworkTitle = ' - %data%</a>';
+            viewWork.HTMLworkDates = '<div class="date-text">%data%</div>';
+            viewWork.HTMLworkLocation = '<div class="location-text">%data%</div>';
+            viewWork.HTMLworkDescription = '<p><br>%data%</p>';
+
             viewWork.work = octopus.getAllWork();
         },
 
@@ -739,16 +734,16 @@ $(function() {
 
             if (work.jobs.length > 0) {
                 for (var job in work.jobs) {
-                    $("#workExperience").append(viewBio.HTMLworkStart);
+                    $("#workExperience").append(viewWork.HTMLworkStart);
 
-                    var formattedWorkEmployer = viewBio.HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+                    var formattedWorkEmployer = viewWork.HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
                     formattedWorkEmployer = formattedWorkEmployer.replace("%url%", work.jobs[job].url);
-                    var formattedWorkTitle = viewBio.HTMLworkTitle.replace("%data%", work.jobs[job].title);
+                    var formattedWorkTitle = viewWork.HTMLworkTitle.replace("%data%", work.jobs[job].title);
                     var formattedworkEmployerTitle = formattedWorkEmployer + formattedWorkTitle;
 
-                    var formattedWorkLocation = viewBio.HTMLworkLocation.replace("%data%", work.jobs[job].location);
-                    var formattedWorkDates = viewBio.HTMLworkDates.replace("%data%", work.jobs[job].dates);
-                    var formattedWorkDescription = viewBio.HTMLworkDescription.replace("%data%", work.jobs[job].description);
+                    var formattedWorkLocation = viewWork.HTMLworkLocation.replace("%data%", work.jobs[job].location);
+                    var formattedWorkDates = viewWork.HTMLworkDates.replace("%data%", work.jobs[job].dates);
+                    var formattedWorkDescription = viewWork.HTMLworkDescription.replace("%data%", work.jobs[job].description);
 
                     $(".work-entry:last").append(formattedworkEmployerTitle);
                     $(".work-entry:last").append(formattedWorkLocation);
@@ -773,6 +768,13 @@ $(function() {
          * Initialises the views HTML template strings and gets the Projects JSON object.
          */
         "init": function() {
+
+            viewProjects.HTMLprojectStart = '<div class="project-entry"></div>';
+            viewProjects.HTMLprojectTitle = '<a href="%url%">%data%</a>';
+            viewProjects.HTMLprojectDates = '<div class="date-text">%data%</div>';
+            viewProjects.HTMLprojectDescription = '<p><br>%data%</p>';
+            viewProjects.HTMLprojectImage = '<img src="%data%">';
+
             viewProjects.projects = octopus.getAllProjects();
         },
 
@@ -787,19 +789,19 @@ $(function() {
 
             if (projects.projects.length > 0) {
                 for (var project in projects.projects) {
-                    $("#projects").append(viewBio.HTMLprojectStart);
+                    $("#projects").append(viewProjects.HTMLprojectStart);
 
-                    var formattedProjectTitle = viewBio.HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+                    var formattedProjectTitle = viewProjects.HTMLprojectTitle.replace("%data%", projects.projects[project].title);
                     formattedProjectTitle = formattedProjectTitle.replace("%url%", projects.projects[project].url);
-                    var formattedProjectDates = viewBio.HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-                    var formattedProjectDescription = viewBio.HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+                    var formattedProjectDates = viewProjects.HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+                    var formattedProjectDescription = viewProjects.HTMLprojectDescription.replace("%data%", projects.projects[project].description);
 
                     $(".project-entry:last").append(formattedProjectTitle);
                     $(".project-entry:last").append(formattedProjectDates);
                     $(".project-entry:last").append(formattedProjectDescription);
 
                     for (var image in projects.projects[project].images) {
-                        var formattedProjectImage = viewBio.HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+                        var formattedProjectImage = viewProjects.HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
                         $(".project-entry:last").append(formattedProjectImage);
                     }
                 }
