@@ -313,9 +313,6 @@ $(function() {
             viewProjects.render();
             viewWork.render();
             viewEducation.render();
-            viewMap.render();
-
-
         },
 
         /**
