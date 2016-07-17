@@ -36,7 +36,7 @@ $(function() {
                 "name": "Roger Woodroofe",
                 "role": "Web Developer and IT Support",
                 "welcomeMsg": "I'm available. Contact me now.",
-                "bioPic": "images/roger-profile-image.jpg",
+                "bioPic": "img/roger-profile-image.jpg",
                 "contacts": {
                     "mobile": "+64 27 2932397",
                     "email": "RogerWoodroofe@gmail.com",
