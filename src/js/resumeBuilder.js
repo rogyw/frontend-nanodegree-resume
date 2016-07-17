@@ -35,7 +35,7 @@ $(function() {
             model.bio = {
                 "name": "Roger Woodroofe",
                 "role": "Web Developer and IT Support",
-                "welcomeMsg": "I'm available for work in Auckland, Waikato, or remote - contact me now.",
+                "welcomeMsg": "I'm available. Contact me now.",
                 "bioPic": "images/roger-profile-image.jpg",
                 "contacts": {
                     "mobile": "+64 27 2932397",
