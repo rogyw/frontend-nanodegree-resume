@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "google-feeds": "GoogleWebComponents/google-feeds#^1.0.1",
-    "polymer": "Polymer/polymer#1.1.0"
+    "polymer": "Polymer/polymer#1.1.0",
+    "normalize-css": "^5.0.0"
   }
 }

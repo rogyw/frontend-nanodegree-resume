@@ -179,7 +179,7 @@ $(function() {
                     "location": "Greenlane, Auckland, NZ",
                     "dates": "2001 - present",
                     "description": "IT support services for several Small Businesses. Computer and network setup, maintenance and support. Application Support. Staff training and procedures documentation. On-call onsite and remote support.",
-                    "url": "http://roger.navevent.co.nz/"
+                    "url": "https://okrogerthat.nz/projects/portfolio"
                 }, {
                     "employer": "Codenza Limited",
                     "title": "Web Developer and Support",
@@ -193,7 +193,7 @@ $(function() {
                     "location": "Ellerslie, Auckland, NZ",
                     "dates": "2001 - 2014",
                     "description": "Provided customised website development adhering to web standards validation. CMS: Silverstripe, Concrete5, Joomla, Wordpress. HTML4+5/XHTML and CSS. MySQL database maintenance. Maintenance and improvement of sites in PHP, Coldfusion5, Javascript, jQuery. Online forms, and database structures; Website support and advice. Management of hosting, domain names, email services; assisted clients and staff with content creation; maintained and implemented smooth change-over; Speed enhancement, upgrades, logs analysis, SEO and troubleshooting.",
-                    "url": "http://roger.navevent.co.nz/"
+                    "url": "https://okrogerthat.nz/projects/portfolio"
                 }, {
                     "employer": "Symantec New Zealand Limited",
                     "title": "Information Developer",
@@ -207,7 +207,7 @@ $(function() {
                     "location": "Grey Lynn, Auckland, NZ",
                     "dates": "Dec 1996 - June 1998",
                     "description": "Development in C programming language with network protocols NetBIOS, IPX and TCP/IP and Winsock2/WATTTCP/NDIS network driver specifications. Development team member. Minimal assembly language work. Windows online user help file creation. User manual supplements. Documentation maintenance and project management.",
-                    "url": "http://roger.navevent.co.nz/"
+                    "url": "https://okrogerthat.nz/projects/portfolio"
                 }]
             };
 
@@ -219,19 +219,19 @@ $(function() {
                     "title": "Silverstripe Website - AOC",
                     "dates": "2015",
                     "description": "Silverstripe CMS setup. Added content from old static sites. Template customised.",
-                    "images": ["http://roger.navevent.co.nz/portfolio/img/past_work_aoc_ss3.png"],
+                    "images": ["https://okrogerthat.nz/projects/portfolio/img/past_work_aoc_ss3.png"],
                     "url": "http://www.orienteeringauckland.org.nz/"
                 }, {
                     "title": "Joomla Template (Codenza) - BGate",
                     "dates": "2012",
                     "description": "Joomla Template initial build in HTML/CSS created from supplied design images. CMS setup and added content. Created documentation for website.",
-                    "images": ["http://roger.navevent.co.nz/portfolio/img/past_work_bg.png"],
+                    "images": ["https://okrogerthat.nz/projects/portfolio/img/past_work_bg.png"],
                     "url": "http://www.bgate.com/cms/"
                 }, {
                     "title": "Joomla Template (Codenza) - Added Insight",
                     "dates": "2012",
                     "description": "Joomla Template initial build in HTML/CSS created from supplied design pdf mockup. CMS setup and added content. Suggested small design improvements.",
-                    "images": ["http://roger.navevent.co.nz/portfolio/img/past_work_ai.png"],
+                    "images": ["https://okrogerthat.nz/projects/portfolio/img/past_work_ai.png"],
                     "url": "http://www.addedinsight.co.nz/"
                 }]
             };
